@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+
+{% block css_files %}<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css"/>{% endblock  %}
+
+{% block page_title %}
+    kurslar
+{% endblock %}
+
+
+
+{% block content %}
+<div class="container mt-3">
+    <div class="row">
+        <div class="col-3">
+             <!--menu-->
+
+            {% include 'courses/partials/_categories.html' %}
+            
+
+        </div>
+        <div class="col-9">
+            {% for course in courses  %}
+              <div class="card mb-3">
+                <div class="row">
+                    <div class="col-4">
+                        <img class="img-fluid rounded-start" src="{{course.imageUrl}}" alt=" {{course.title}}">
+                    <div>
+                    <div class="col-8">
+                        <div class="card-body">
+                            <h5 class='card-title'>{{course.title}}</h5>
+                            <p class="card-text">{{course.description}}</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>  
+            
+            {% endfor %}
+            <!--content-->
+            
+        </div>
+    </div>
+</div>
+{% endblock %}
